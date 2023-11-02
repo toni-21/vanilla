@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:vanilla/ui/common/app_colors.dart';
 import 'package:vanilla/ui/common/ui_helpers.dart';
+import 'package:vanilla/utilities/constants/colors.dart';
 
 import 'home_viewmodel.dart';
 
@@ -48,7 +49,7 @@ class HomeView extends StackedView<HomeViewModel> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     MaterialButton(
-                      color: kcDarkGreyColor,
+                      color: AppColors.darkGreyColor,
                       onPressed: viewModel.showDialog,
                       child: const Text(
                         'Show Dialog',
@@ -58,7 +59,7 @@ class HomeView extends StackedView<HomeViewModel> {
                       ),
                     ),
                     MaterialButton(
-                      color: kcDarkGreyColor,
+                      color: AppColors.darkGreyColor,
                       onPressed: viewModel.showBottomSheet,
                       child: const Text(
                         'Show Bottom Sheet',

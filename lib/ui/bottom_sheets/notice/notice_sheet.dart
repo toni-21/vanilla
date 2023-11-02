@@ -3,6 +3,7 @@ import 'package:vanilla/ui/common/app_colors.dart';
 import 'package:vanilla/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:vanilla/utilities/constants/colors.dart';
 
 import 'notice_sheet_model.dart';
 
@@ -41,7 +42,7 @@ class NoticeSheet extends StackedView<NoticeSheetModel> {
           verticalSpaceTiny,
           Text(
             request.description!,
-            style: const TextStyle(fontSize: 14, color: kcMediumGrey),
+            style: const TextStyle(fontSize: 14, color: AppColors.mediumGrey),
             maxLines: 3,
             softWrap: true,
           ),
