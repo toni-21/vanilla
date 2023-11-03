@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:stacked/stacked.dart';
-import 'package:vanilla/ui/common/ui_helpers.dart';
+import 'package:vanilla/utilities/ui_helpers/dimensions.dart';
 
 import 'startup_viewmodel.dart';
 

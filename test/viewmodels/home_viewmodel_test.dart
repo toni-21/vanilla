@@ -2,8 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:vanilla/app/app.bottomsheets.dart';
 import 'package:vanilla/app/app.locator.dart';
-import 'package:vanilla/ui/common/app_strings.dart';
 import 'package:vanilla/ui/views/home/home_viewmodel.dart';
+import 'package:vanilla/utilities/constants/strings.dart';
 
 import '../helpers/test_helpers.dart';
 

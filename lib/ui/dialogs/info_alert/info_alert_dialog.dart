@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vanilla/ui/common/app_colors.dart';
-import 'package:vanilla/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:vanilla/utilities/constants/colors.dart';
+import 'package:vanilla/utilities/ui_helpers/dimensions.dart';
 
 import 'info_alert_dialog_model.dart';
 

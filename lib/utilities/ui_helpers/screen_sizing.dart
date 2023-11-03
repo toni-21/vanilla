@@ -2,31 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-const double _tinySize = 5.0;
-const double _smallSize = 10.0;
-const double _mediumSize = 25.0;
-const double _largeSize = 50.0;
-const double _massiveSize = 120.0;
-
-const Widget horizontalSpaceTiny = SizedBox(width: _tinySize);
-const Widget horizontalSpaceSmall = SizedBox(width: _smallSize);
-const Widget horizontalSpaceMedium = SizedBox(width: _mediumSize);
-const Widget horizontalSpaceLarge = SizedBox(width: _largeSize);
-
-const Widget verticalSpaceTiny = SizedBox(height: _tinySize);
-const Widget verticalSpaceSmall = SizedBox(height: _smallSize);
-const Widget verticalSpaceMedium = SizedBox(height: _mediumSize);
-const Widget verticalSpaceLarge = SizedBox(height: _largeSize);
-const Widget verticalSpaceMassive = SizedBox(height: _massiveSize);
-
-Widget spacedDivider = const Column(
-  children: <Widget>[
-    verticalSpaceMedium,
-    Divider(color: Colors.blueGrey, height: 5.0),
-    verticalSpaceMedium,
-  ],
-);
-
 Widget verticalSpace(double height) => SizedBox(height: height);
 
 double screenWidth(BuildContext context) => MediaQuery.of(context).size.width;
@@ -75,4 +50,27 @@ double getResponsiveFontSize(BuildContext context,
       max);
 
   return responsiveSize;
+}
+
+class ScreenSize {
+  final BuildContext? context;
+  ScreenSize({this.context});
+
+  // screen height
+  double get h => MediaQuery.of(context!).size.height;
+
+  // screen width
+  double get w => MediaQuery.of(context!).size.width;
+
+  // size
+  Size get s => MediaQuery.of(context!).size;
+  // text scale factor
+  double get tsf => MediaQuery.of(context!).textScaleFactor;
+
+  // calculated height
+  double cH({double? height}) =>
+      MediaQuery.of(context!).size.height * (height! / 844);
+  // calculated width
+  double cW({double? width}) =>
+      MediaQuery.of(context!).size.width * (width! / 390);
 }

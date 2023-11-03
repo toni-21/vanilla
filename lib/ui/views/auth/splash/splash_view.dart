@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:stacked/stacked.dart';
 import 'package:vanilla/utilities/constants/colors.dart';
+import 'package:vanilla/utilities/constants/images.dart';
 
 import 'splash_viewmodel.dart';
 
@@ -17,7 +18,7 @@ class SplashView extends StackedView<SplashViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(16, 23, 31, 1),
+      backgroundColor: AppColors.secondaryColor,
       body: Center(
           child: Shimmer.fromColors(
         baseColor: AppColors.primaryColor.withOpacity(0.85),
@@ -26,7 +27,7 @@ class SplashView extends StackedView<SplashViewModel> {
         // highlightColor:AppColors.secondaryColor,//
         enabled: true,
         child:
-            SvgPicture.asset('assets/images/logo.svg', semanticsLabel: 'logo'),
+            SvgPicture.asset(logoImage, semanticsLabel: 'logo'),
       )),
     );
   }
