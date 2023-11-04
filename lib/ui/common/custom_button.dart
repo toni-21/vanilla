@@ -13,7 +13,10 @@ class CustomButton extends StatelessWidget {
   final IconData? icon;
   final Color? backgroundColor;
   final Color? fontColor;
+  final Color? iconColor;
+  final Color? borderColor;
   final double? radius;
+
   const CustomButton(
       {Key? key,
       this.onPressed,
@@ -24,6 +27,8 @@ class CustomButton extends StatelessWidget {
       this.height,
       this.fontSize,
       this.icon,
+      this.borderColor,
+      this.iconColor,
       this.backgroundColor,
       this.fontColor,
       this.radius})
@@ -40,6 +45,7 @@ class CustomButton extends StatelessWidget {
       minimumSize:
           Size(width != null ? width! : 1170, height != null ? height! : 42),
       padding: EdgeInsets.zero,
+      side: borderColor == null ? null : BorderSide(color: borderColor!),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(radius ?? 6.r)),
     );
@@ -55,7 +61,7 @@ class CustomButton extends StatelessWidget {
                   icon,
                   color: transparent
                       ? Theme.of(context).primaryColor
-                      : Theme.of(context).cardColor,
+                      : iconColor ?? Theme.of(context).cardColor,
                   size: 20.dm,
                 )
               : const SizedBox(),

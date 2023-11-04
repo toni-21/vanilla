@@ -56,7 +56,9 @@ class OnboardingView extends StackedView<OnboardingViewModel> {
           Gap(24.h),
           CustomButton(
             buttonText: 'Get Started',
-            onPressed: (){},
+            onPressed: () {
+              viewModel.goToEmail();
+            },
             margin: EdgeInsets.symmetric(horizontal: 16.w),
           ),
         ],

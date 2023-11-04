@@ -43,7 +43,7 @@ class CustomTextDisplay extends StatelessWidget {
               letterSpacing: letterSpacing ?? 0.02,
               fontSize: textFontSize.sp,
               height: textLineHeight ?? 1.5.h,
-              
+
               // orientation == Orientation.portrait
               //     ? dynamicSize.height * (textFontSize / 844)
               //     : dynamicSize.width * (textFontSize / 844),
@@ -52,7 +52,6 @@ class CustomTextDisplay extends StatelessWidget {
               decorationColor: decorationColor ?? AppColors.black,
               decorationStyle: TextDecorationStyle.solid)),
       maxLines: noOfTextLine,
-      
       semanticsLabel: textSemanticLabel ?? inputText,
       textAlign: textAlign ?? TextAlign.left,
       overflow: TextOverflow.ellipsis,

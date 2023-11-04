@@ -26,8 +26,7 @@ class SplashView extends StackedView<SplashViewModel> {
         // baseColor: AppColors.primaryColor.withOpacity(0),
         // highlightColor:AppColors.secondaryColor,//
         enabled: true,
-        child:
-            SvgPicture.asset(logoImage, semanticsLabel: 'logo'),
+        child: SvgPicture.asset(logoImage, semanticsLabel: 'logo'),
       )),
     );
   }
