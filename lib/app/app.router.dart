@@ -10,7 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i8;
 import 'package:vanilla/ui/views/auth/login/login_view.dart' as _i6;
+import 'package:vanilla/ui/views/auth/onboarding/name_view.dart';
 import 'package:vanilla/ui/views/auth/onboarding/onboarding_view.dart' as _i5;
+import 'package:vanilla/ui/views/auth/onboarding/otp_verification.dart';
+import 'package:vanilla/ui/views/auth/onboarding/setup_view.dart';
 import 'package:vanilla/ui/views/auth/splash/splash_view.dart' as _i4;
 import 'package:vanilla/ui/views/home/home_view.dart' as _i2;
 import 'package:vanilla/ui/views/startup/startup_view.dart' as _i3;
@@ -26,12 +29,21 @@ class Routes {
 
   static const loginView = '/login-view';
 
+  static const otpVerificationView = '/otpVerification-view';
+
+  static const nameView = '/name-view';
+
+  static const setupView = '/setup-view';
+
   static const all = <String>{
     homeView,
     startupView,
     splashView,
     onboardingView,
     loginView,
+    otpVerificationView,
+    nameView,
+    setupView,
   };
 }
 
@@ -56,6 +68,18 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(
       Routes.loginView,
       page: _i6.LoginView,
+    ),
+    _i1.RouteDef(
+      Routes.otpVerificationView,
+      page: OTPVerificationView,
+    ),
+    _i1.RouteDef(
+      Routes.nameView,
+      page: NameView,
+    ),
+    _i1.RouteDef(
+      Routes.setupView,
+      page: SetupView,
     ),
   ];
 
@@ -87,6 +111,25 @@ class StackedRouter extends _i1.RouterBase {
     _i6.LoginView: (data) {
       return _i7.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.LoginView(),
+        settings: data,
+      );
+    },
+    OTPVerificationView: (data) {
+      return _i7.MaterialPageRoute<dynamic>(
+        builder: (context) => OTPVerificationView(
+            type: (data.arguments as OTPVerificationArguments).type),
+        settings: data,
+      );
+    },
+    NameView: (data) {
+      return _i7.MaterialPageRoute<dynamic>(
+        builder: (context) => const NameView(),
+        settings: data,
+      );
+    },
+    SetupView: (data) {
+      return _i7.MaterialPageRoute<dynamic>(
+        builder: (context) => const SetupView(),
         settings: data,
       );
     },

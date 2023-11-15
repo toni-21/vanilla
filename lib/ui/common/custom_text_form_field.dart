@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vanilla/ui/common/custom_text_display.dart';
+import 'package:vanilla/utilities/constants/colors.dart';
 
 class CustomTextFormField extends StatefulWidget {
   final String hintText;
   final TextEditingController? controller;
   final FocusNode? focusNode;
   final FocusNode? nextFocus;
+  final double? fontSize;
+  final String? titleText;
   final TextInputType inputType;
   final TextInputAction inputAction;
   final bool isPassword;
@@ -41,12 +45,14 @@ class CustomTextFormField extends StatefulWidget {
     this.onSubmit,
     this.onChanged,
     this.prefixIcon,
+    this.titleText,
     this.capitalization = TextCapitalization.none,
     this.isPassword = false,
     this.divider = false,
     this.showTitle = false,
     this.prefixImage,
     this.prefixSize = 10,
+    this.fontSize,
     this.validator,
     this.autoValidate = true,
     this.iconSize = 18,
@@ -70,7 +76,7 @@ class CustomTextFieldState extends State<CustomTextFormField> {
       children: [
         widget.showTitle
             ? CustomTextDisplay(
-                inputText: widget.hintText,
+                inputText: widget.titleText ?? widget.hintText,
                 textFontSize: 14,
               )
             : const SizedBox(),
@@ -79,10 +85,10 @@ class CustomTextFieldState extends State<CustomTextFormField> {
           maxLines: widget.maxLines,
           controller: widget.controller,
           focusNode: widget.focusNode,
-          style: TextStyle(fontSize: 20),
+          style: TextStyle(fontSize: widget.fontSize?.sp ?? 16.sp),
           textInputAction: widget.inputAction,
           keyboardType: widget.inputType,
-          cursorColor: Theme.of(context).primaryColor,
+          cursorColor: AppColors.black,
           textCapitalization: widget.capitalization,
           enabled: widget.isEnabled,
           autofocus: false,
@@ -105,14 +111,14 @@ class CustomTextFieldState extends State<CustomTextFormField> {
               borderSide: BorderSide(
                   style: widget.border ? BorderStyle.solid : BorderStyle.none,
                   width: 0.3,
-                  color: Theme.of(context).primaryColor),
+                  color: AppColors.black.withOpacity(0.25)),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6),
               borderSide: BorderSide(
                   style: widget.border ? BorderStyle.solid : BorderStyle.none,
                   width: 1,
-                  color: Theme.of(context).primaryColor),
+                  color: AppColors.black.withOpacity(0.75)),
             ),
             isDense: true,
             hintText: widget.hintText,
