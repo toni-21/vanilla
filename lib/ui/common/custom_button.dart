@@ -71,7 +71,7 @@ class CustomButton extends StatelessWidget {
               style: TextStyle(
                 color: transparent
                     ? Theme.of(context).primaryColor
-                    : fontColor ?? AppColors.black,
+                    : fontColor ?? AppColors.white,
                 fontSize: fontSize ?? 15.sp,
               )),
         ]),

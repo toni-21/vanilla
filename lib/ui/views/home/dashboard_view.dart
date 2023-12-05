@@ -3,11 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:stacked/stacked.dart';
 import 'package:vanilla/ui/common/base_ui.dart';
+import 'package:vanilla/ui/common/custom_button.dart';
 import 'package:vanilla/ui/common/custom_text_display.dart';
-import 'package:vanilla/ui/views/activity/activity_viewmodel.dart';
+import 'package:vanilla/ui/common/custom_text_form_field.dart';
 import 'package:vanilla/ui/views/home/home_viewmodel.dart';
+import 'package:vanilla/ui/views/home/widgets/delivery_widget.dart';
+import 'package:vanilla/ui/views/home/widgets/track_order_widget.dart';
 import 'package:vanilla/utilities/constants/colors.dart';
-import 'package:vanilla/utilities/function_helpers/amount_helper.dart';
 
 class DashboardView extends StackedView<HomeViewModel> {
   const DashboardView({Key? key}) : super(key: key);
@@ -18,44 +20,71 @@ class DashboardView extends StackedView<HomeViewModel> {
     HomeViewModel viewModel,
     Widget? child,
   ) {
-    return BaseUi(allowBackButton: true, children: [
+    return BaseUi(allowBackButton: true, safeTop: true, children: [
       Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 48),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: SingleChildScrollView(
+          controller: viewModel.mainScrollController,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Gap(24.h),
+              Gap(8.h),
               const CustomTextDisplay(
-                inputText: 'home',
-                textFontSize: 22,
-                textFontWeight: FontWeight.w500,
-              ),
-              Gap(16.h),
-              CustomTextDisplay(
-                inputText: AmountHelper.formatAmount('500000'),
-                textFontSize: 18,
+                inputText: 'Mide, send some packages today!',
+                textFontSize: 16,
                 textFontWeight: FontWeight.w600,
               ),
               Gap(24.h),
-              GestureDetector(
-                onTap: () {},
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.info_outline_rounded,
-                      color: AppColors.primaryColor,
-                      size: 16.h,
-                    ),
-                    CustomTextDisplay(
-                      inputText: '  Learn more about your savings options',
-                      textFontSize: 12,
-                      textColor: AppColors.primaryColor,
-                      textFontWeight: FontWeight.w400,
-                    ),
-                  ],
-                ),
+              const CustomTextDisplay(
+                inputText: 'Where are you sending from?',
+                textFontSize: 16,
+                textFontWeight: FontWeight.w600,
               ),
+              Gap(4.h),
+              CustomTextFormField(
+                hintText: 'Enter pickup location',
+                controller: viewModel.pickupController,
+                validator: (value) {
+                  return null;
+                },
+              ),
+              Gap(24.h),
+              const CustomTextDisplay(
+                inputText: 'Where is it going?',
+                textFontSize: 16,
+                textFontWeight: FontWeight.w600,
+              ),
+              Gap(4.h),
+              CustomTextFormField(
+                hintText: 'Enter dropoff location',
+                controller: viewModel.pickupController,
+                validator: (value) {
+                  return null;
+                },
+              ),
+              Gap(16.h),
+              CustomButton(
+                buttonText: 'Add another delivery point',
+                fontColor: AppColors.accentColor,
+                icon: Icons.add_box_rounded,
+                iconColor: AppColors.accentColor,
+                backgroundColor: Colors.transparent,
+                borderColor: AppColors.accentColor,
+                onPressed: () {},
+              ),
+              Gap(22.h),
+              CustomButton(buttonText: 'Continue', onPressed: () {}),
+              Gap(40.h),
+              trackOrderWidget(() {}),
+              Gap(40.h),
+              const CustomTextDisplay(
+                inputText: 'Recent Deliveries',
+                textFontSize: 16,
+                textFontWeight: FontWeight.w600,
+              ),
+              Gap(16.h),
+              deliveryWidget(),
+              Gap(48.h),
             ],
           ),
         ),
