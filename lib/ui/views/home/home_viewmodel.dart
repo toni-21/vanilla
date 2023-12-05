@@ -6,7 +6,7 @@ import 'package:stacked_services/stacked_services.dart';
 import 'package:vanilla/app/app.router.dart';
 import 'package:vanilla/utilities/constants/strings.dart';
 
-class HomeViewModel extends BaseViewModel {
+class HomeViewModel  extends IndexTrackingViewModel{
   final _dialogService = locator<DialogService>();
   final _navigatorService = locator<NavigationService>();
   final _bottomSheetService = locator<BottomSheetService>();

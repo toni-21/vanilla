@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:stacked/stacked.dart';
 import 'package:vanilla/ui/common/base_ui.dart';
 import 'package:vanilla/ui/common/custom_button.dart';
 import 'package:vanilla/ui/common/custom_text_form_field.dart';
 import 'package:vanilla/utilities/constants/colors.dart';
-import 'package:vanilla/utilities/constants/images.dart';
 import 'package:vanilla/ui/common/custom_text_display.dart';
 import 'package:gap/gap.dart';
 import 'package:vanilla/utilities/function_helpers/validation_helper.dart';

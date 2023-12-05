@@ -1,85 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:vanilla/models/body/home_enum.dart';
+import 'package:vanilla/ui/common/custom_loader.dart';
+import 'package:vanilla/ui/views/activity/activity_view.dart';
+import 'package:vanilla/ui/views/bottom_nav/bottom_nav_viewmodel.dart';
+import 'package:vanilla/ui/views/home/dashboard_view.dart';
+import 'package:vanilla/ui/views/profile/profile_view.dart';
+import 'package:vanilla/ui/views/support/support_view.dart';
 import 'package:vanilla/utilities/constants/colors.dart';
-import 'package:vanilla/utilities/ui_helpers/dimensions.dart';
 
-import 'home_viewmodel.dart';
-
-class HomeView extends StackedView<HomeViewModel> {
-  const HomeView({Key? key}) : super(key: key);
+class HomeView extends StatelessWidget {
+  final HomeViewEnum homeViewEnum;
+  const HomeView({required, Key? key, required this.homeViewEnum})
+      : super(key: key);
 
   @override
-  Widget builder(
-    BuildContext context,
-    HomeViewModel viewModel,
-    Widget? child,
-  ) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                verticalSpaceLarge,
-                Column(
-                  children: [
-                    const Text(
-                      'Hello, STACKED!',
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    verticalSpaceMedium,
-                    MaterialButton(
-                      color: Colors.black,
-                      onPressed: viewModel.incrementCounter,
-                      child: Text(
-                        viewModel.counterLabel,
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MaterialButton(
-                      color: AppColors.darkGreyColor,
-                      onPressed: viewModel.showDialog,
-                      child: const Text(
-                        'Show Dialog',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    MaterialButton(
-                      color: AppColors.darkGreyColor,
-                      onPressed: viewModel.showBottomSheet,
-                      child: const Text(
-                        'Show Bottom Sheet',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
+  Widget build(BuildContext context) {
+    return ViewModelBuilder<BottomNavViewModel>.reactive(
+      builder: (context, model, child) => Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: AppColors.white,
+        body: model.isBusy
+            ? customLoader()
+            : IndexedStack(index: model.currentIndex, children: const [
+                DashboardView(),
+                ActivityView(),
+                SupportView(),
+                ProfileView()
+              ]),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: AppColors.white,
+          type: BottomNavigationBarType.fixed,
+          elevation: 0,
+          selectedItemColor: AppColors.primaryColor,
+          currentIndex: model.currentIndex,
+          unselectedItemColor: Colors.grey,
+          showSelectedLabels: true,
+          onTap: model.setIndex,
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home_outlined),
+                activeIcon: Icon(Icons.home_outlined),
+                label: HomeViewEnum.dashboard.name),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.article_outlined),
+                activeIcon: Icon(Icons.article_outlined),
+                label: HomeViewEnum.activity.name),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.message_outlined),
+                activeIcon: Icon(Icons.message_outlined),
+                label: HomeViewEnum.support.name),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                activeIcon: Icon(Icons.person),
+                label: HomeViewEnum.profile.name),
+          ],
         ),
       ),
+      viewModelBuilder: () => BottomNavViewModel(),
     );
   }
+}
 
-  @override
-  HomeViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
-      HomeViewModel();
+class HomeViewArguments {
+  final HomeViewEnum homeViewEnum;
+  HomeViewArguments({required this.homeViewEnum});
 }

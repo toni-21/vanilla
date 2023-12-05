@@ -9,6 +9,7 @@ import 'package:flutter/material.dart' as _i7;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i8;
+import 'package:vanilla/models/body/home_enum.dart';
 import 'package:vanilla/ui/views/auth/login/login_view.dart' as _i6;
 import 'package:vanilla/ui/views/auth/onboarding/name_view.dart';
 import 'package:vanilla/ui/views/auth/onboarding/onboarding_view.dart' as _i5;
@@ -85,8 +86,12 @@ class StackedRouter extends _i1.RouterBase {
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
+      var args = data.getArgs<_i2.HomeViewArguments>(
+        orElse: () =>
+            _i2.HomeViewArguments(homeViewEnum: HomeViewEnum.dashboard),
+      );
       return _i7.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i2.HomeView(),
+        builder: (context) => _i2.HomeView(homeViewEnum: args.homeViewEnum),
         settings: data,
       );
     },
