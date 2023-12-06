@@ -75,7 +75,7 @@ class DashboardView extends StackedView<HomeViewModel> {
               Gap(22.h),
               CustomButton(buttonText: 'Continue', onPressed: () {}),
               Gap(40.h),
-              trackOrderWidget(() {}),
+              trackOrderWidget(callback: () {}),
               Gap(40.h),
               const CustomTextDisplay(
                 inputText: 'Recent Deliveries',

@@ -2,10 +2,16 @@ import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:vanilla/ui/common/custom_button.dart';
 import 'package:vanilla/ui/common/custom_text_display.dart';
+import 'package:vanilla/ui/common/custom_text_form_field.dart';
+import 'package:vanilla/ui/views/activity/widgets/starRatingWidget.dart';
 import 'package:vanilla/utilities/constants/colors.dart';
 
-Widget deliveryWidget() {
+Widget deliveryWidget(
+    {bool showRating = false,
+    bool showReview = false,
+    bool showDriverInfo = false}) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
     decoration: ShapeDecoration(
@@ -142,110 +148,131 @@ Widget deliveryWidget() {
             ),
           ],
         ),
-        Gap(24.h),
-        Row(
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-              decoration: ShapeDecoration(
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(width: 1, color: AppColors.black),
-                  borderRadius: BorderRadius.circular(6),
+        if (showDriverInfo) ...[
+          Gap(24.h),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                decoration: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 1, color: AppColors.black),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
+                child: CustomTextDisplay(
+                  inputText: 'Driver informaation',
+                  textColor: AppColors.black,
+                  textFontSize: 11,
+                  textFontWeight: FontWeight.w600,
                 ),
               ),
-              child: CustomTextDisplay(
-                inputText: 'Driver informaation',
-                textColor: AppColors.black,
-                textFontSize: 11,
-                textFontWeight: FontWeight.w600,
+            ],
+          ),
+          Gap(12.h),
+          Row(
+            children: [
+              Expanded(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CustomTextDisplay(
+                      inputText: 'Name:',
+                      textFontSize: 12,
+                      textFontWeight: FontWeight.w600,
+                    ),
+                    Gap(2.w),
+                    CustomTextDisplay(
+                      inputText: 'Idowu R',
+                      textFontSize: 12,
+                      textFontWeight: FontWeight.w400,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-        Gap(12.h),
-        Row(
-          children: [
-            Expanded(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CustomTextDisplay(
-                    inputText: 'Name:',
-                    textFontSize: 12,
-                    textFontWeight: FontWeight.w600,
-                  ),
-                  Gap(2.w),
-                  CustomTextDisplay(
-                    inputText: 'Idowu R',
-                    textFontSize: 12,
-                    textFontWeight: FontWeight.w400,
-                  ),
-                ],
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CustomTextDisplay(
+                      inputText: 'Plate Number:',
+                      textFontSize: 12,
+                      textFontWeight: FontWeight.w600,
+                    ),
+                    Gap(2.w),
+                    CustomTextDisplay(
+                      inputText: '213456',
+                      textFontSize: 12,
+                      textFontWeight: FontWeight.w400,
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+          Gap(2.h),
+          Row(
+            children: [
+              Expanded(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CustomTextDisplay(
+                      inputText: 'Vehicle Type:',
+                      textFontSize: 12,
+                      textFontWeight: FontWeight.w600,
+                    ),
+                    Gap(2.w),
+                    CustomTextDisplay(
+                      inputText: 'Motorcycle',
+                      textFontSize: 12,
+                      textFontWeight: FontWeight.w400,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CustomTextDisplay(
-                    inputText: 'Plate Number:',
-                    textFontSize: 12,
-                    textFontWeight: FontWeight.w600,
-                  ),
-                  Gap(2.w),
-                  CustomTextDisplay(
-                    inputText: '213456',
-                    textFontSize: 12,
-                    textFontWeight: FontWeight.w400,
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-        Gap(2.h),
-        Row(
-          children: [
-            Expanded(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CustomTextDisplay(
-                    inputText: 'Vehicle Type:',
-                    textFontSize: 12,
-                    textFontWeight: FontWeight.w600,
-                  ),
-                  Gap(2.w),
-                  CustomTextDisplay(
-                    inputText: 'Motorcycle',
-                    textFontSize: 12,
-                    textFontWeight: FontWeight.w400,
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CustomTextDisplay(
-                    inputText: 'Destination In:',
-                    textFontSize: 12,
-                    textFontWeight: FontWeight.w600,
-                  ),
-                  Gap(2.w),
-                  CustomTextDisplay(
-                    inputText: '7 Minutes',
-                    textFontSize: 12,
-                    textFontWeight: FontWeight.w400,
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CustomTextDisplay(
+                      inputText: 'Destination In:',
+                      textFontSize: 12,
+                      textFontWeight: FontWeight.w600,
+                    ),
+                    Gap(2.w),
+                    CustomTextDisplay(
+                      inputText: '7 Minutes',
+                      textFontSize: 12,
+                      textFontWeight: FontWeight.w400,
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ],
+        if (!showRating) ...[
+          Gap(8.h),
+          Align(
+            alignment: Alignment.center,
+            child: StarRating(starSize: 36, callback: () {}),
+          ),
+        ],
+        if (!showReview) ...[
+          Gap(16.h),
+          CustomTextFormField(
+            hintText: 'Add Review (Optional)',
+            maxLines: 2,
+            validator: (value) {
+              return null;
+            },
+          ),
+          Gap(16.h),
+          CustomButton(buttonText: 'Continue', onPressed: () {}),
+        ]
       ],
     ),
   );

@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:vanilla/ui/common/custom_text_display.dart';
 import 'package:vanilla/utilities/constants/colors.dart';
 
-Widget trackOrderWidget(Function callback) {
+Widget trackOrderWidget({required Function callback}) {
   return InkWell(
     onTap: () {
       callback();
