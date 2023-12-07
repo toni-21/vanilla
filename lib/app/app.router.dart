@@ -16,8 +16,9 @@ import 'package:vanilla/ui/views/auth/onboarding/onboarding_view.dart' as _i5;
 import 'package:vanilla/ui/views/auth/onboarding/otp_verification.dart';
 import 'package:vanilla/ui/views/auth/onboarding/setup_view.dart';
 import 'package:vanilla/ui/views/auth/splash/splash_view.dart' as _i4;
+import 'package:vanilla/ui/views/home/delivery/delivery_details_view.dart';
+import 'package:vanilla/ui/views/home/delivery/delivery_summary_view.dart';
 import 'package:vanilla/ui/views/home/home_view.dart' as _i2;
-import 'package:vanilla/ui/views/startup/startup_view.dart' as _i3;
 
 class Routes {
   static const homeView = '/home-view';
@@ -36,6 +37,10 @@ class Routes {
 
   static const setupView = '/setup-view';
 
+  static const deliveryDetailsView = '/delivery-details-view';
+
+  static const deliverySummaryView = '/delivery-summary-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -45,6 +50,8 @@ class Routes {
     otpVerificationView,
     nameView,
     setupView,
+    deliveryDetailsView,
+    deliverySummaryView,
   };
 }
 
@@ -53,10 +60,6 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(
       Routes.homeView,
       page: _i2.HomeView,
-    ),
-    _i1.RouteDef(
-      Routes.startupView,
-      page: _i3.StartupView,
     ),
     _i1.RouteDef(
       Routes.splashView,
@@ -82,6 +85,14 @@ class StackedRouter extends _i1.RouterBase {
       Routes.setupView,
       page: SetupView,
     ),
+    _i1.RouteDef(
+      Routes.deliveryDetailsView,
+      page: DeliveryDetailsView,
+    ),
+    _i1.RouteDef(
+      Routes.deliverySummaryView,
+      page: DeliverySummaryView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
@@ -92,12 +103,6 @@ class StackedRouter extends _i1.RouterBase {
       );
       return _i7.MaterialPageRoute<dynamic>(
         builder: (context) => _i2.HomeView(homeViewEnum: args.homeViewEnum),
-        settings: data,
-      );
-    },
-    _i3.StartupView: (data) {
-      return _i7.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
@@ -135,6 +140,18 @@ class StackedRouter extends _i1.RouterBase {
     SetupView: (data) {
       return _i7.MaterialPageRoute<dynamic>(
         builder: (context) => const SetupView(),
+        settings: data,
+      );
+    },
+    DeliveryDetailsView: (data) {
+      return _i7.MaterialPageRoute<dynamic>(
+        builder: (context) => const DeliveryDetailsView(),
+        settings: data,
+      );
+    },
+    DeliverySummaryView: (data) {
+      return _i7.MaterialPageRoute<dynamic>(
+        builder: (context) => const DeliverySummaryView(),
         settings: data,
       );
     },

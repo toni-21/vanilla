@@ -3,7 +3,7 @@ import 'package:stacked/stacked.dart';
 import 'package:vanilla/models/body/home_enum.dart';
 import 'package:vanilla/ui/common/custom_loader.dart';
 import 'package:vanilla/ui/views/activity/activity_view.dart';
-import 'package:vanilla/ui/views/bottom_nav/bottom_nav_viewmodel.dart';
+import 'package:vanilla/ui/bottom_nav/bottom_nav_viewmodel.dart';
 import 'package:vanilla/ui/views/home/dashboard_view.dart';
 import 'package:vanilla/ui/views/profile/profile_view.dart';
 import 'package:vanilla/ui/views/support/support_view.dart';

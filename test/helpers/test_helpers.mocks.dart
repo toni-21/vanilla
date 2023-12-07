@@ -656,4 +656,59 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
 /// A class which mocks [AuthService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAuthService extends _i1.Mock implements _i6.AuthService {}
+class MockAuthService extends _i1.Mock implements _i6.AuthService {
+  @override
+  String get email => (super.noSuchMethod(
+        Invocation.getter(#email),
+        returnValue: '',
+        returnValueForMissingStub: '',
+      ) as String);
+
+  @override
+  String get phoneNumber => (super.noSuchMethod(
+        Invocation.getter(#phoneNumber),
+        returnValue: '',
+        returnValueForMissingStub: '',
+      ) as String);
+
+  @override
+  String get lastName => (super.noSuchMethod(
+        Invocation.getter(#lastName),
+        returnValue: '',
+        returnValueForMissingStub: '',
+      ) as String);
+
+  @override
+  String get firstName => (super.noSuchMethod(
+        Invocation.getter(#firstName),
+        returnValue: '',
+        returnValueForMissingStub: '',
+      ) as String);
+
+  @override
+  void setEmail(String? value) => super.noSuchMethod(
+        Invocation.method(
+          #setEmail,
+          [value],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void setAuthInfo(
+    String? firstName,
+    String? lastName,
+    String? phoneNumber,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #setAuthInfo,
+          [
+            firstName,
+            lastName,
+            phoneNumber,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+}

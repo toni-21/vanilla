@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:stacked/stacked.dart';
-import 'package:vanilla/models/body/activity_enum.dart';
 import 'package:vanilla/ui/common/base_ui.dart';
 import 'package:vanilla/ui/common/custom_text_display.dart';
 import 'package:vanilla/ui/views/activity/activity_viewmodel.dart';
 import 'package:vanilla/ui/views/activity/widgets/activity_tab.dart';
 import 'package:vanilla/ui/views/home/widgets/delivery_widget.dart';
-import 'package:vanilla/utilities/constants/colors.dart';
 import 'package:vanilla/utilities/function_helpers/amount_helper.dart';
 
 class ActivityView extends StackedView<ActivityViewModel> {

@@ -73,7 +73,11 @@ class DashboardView extends StackedView<HomeViewModel> {
                 onPressed: () {},
               ),
               Gap(22.h),
-              CustomButton(buttonText: 'Continue', onPressed: () {}),
+              CustomButton(
+                  buttonText: 'Continue',
+                  onPressed: () {
+                    viewModel.goToDeliveryDets();
+                  }),
               Gap(40.h),
               trackOrderWidget(callback: () {}),
               Gap(40.h),

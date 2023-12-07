@@ -29,6 +29,10 @@ class HomeViewModel extends IndexTrackingViewModel {
     _navigatorService.navigateTo(Routes.splashView);
   }
 
+   void goToDeliveryDets() {
+    _navigatorService.navigateTo(Routes.deliveryDetailsView);
+  }
+
   void showDialog() {
     _dialogService.showCustomDialog(
       variant: DialogType.infoAlert,

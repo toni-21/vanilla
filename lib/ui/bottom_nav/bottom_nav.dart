@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:vanilla/ui/common/custom_loader.dart';
-import 'package:vanilla/ui/views/bottom_nav/bottom_nav_viewmodel.dart';
+import 'package:vanilla/ui/bottom_nav/bottom_nav_viewmodel.dart';
 import 'package:vanilla/utilities/constants/colors.dart';
 
 
