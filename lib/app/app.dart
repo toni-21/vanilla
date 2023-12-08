@@ -1,4 +1,6 @@
 import 'package:vanilla/services/app_service.dart';
+import 'package:vanilla/ui/bottom_sheets/action_warning/action_warning_sheet.dart';
+import 'package:vanilla/ui/bottom_sheets/add_location/add_location_sheet.dart';
 import 'package:vanilla/ui/bottom_sheets/confirm_price/confirm_price_sheet.dart';
 import 'package:vanilla/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:vanilla/ui/dialogs/info_alert/info_alert_dialog.dart';
@@ -45,6 +47,8 @@ import 'package:vanilla/ui/views/profile/saved_locations.dart';
   bottomsheets: [
     StackedBottomsheet(classType: NoticeSheet),
     StackedBottomsheet(classType: ConfirmPriceSheet),
+    StackedBottomsheet(classType: ActionWarningSheet),
+    StackedBottomsheet(classType: AddLocationSheet),
     // @stacked-bottom-sheet
   ],
   dialogs: [

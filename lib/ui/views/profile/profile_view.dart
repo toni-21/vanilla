@@ -10,6 +10,7 @@ import 'package:vanilla/ui/views/profile/profile_viewmodel.dart';
 import 'package:vanilla/ui/views/profile/widgets/profile_option.dart';
 import 'package:vanilla/ui/views/profile/widgets/profile_rating.dart';
 import 'package:vanilla/utilities/constants/colors.dart';
+import 'package:vanilla/utilities/constants/images.dart';
 
 class ProfileView extends StackedView<ProfileViewModel> {
   const ProfileView({Key? key}) : super(key: key);
@@ -69,15 +70,27 @@ class ProfileView extends StackedView<ProfileViewModel> {
             Gap(8.h),
             profileRating('4.5'),
             CustomDivider(thickness: 5.h),
-            profileOption(icon: '', name: 'Saved Addresses', callback: () {}),
-            profileOption(icon: '', name: 'Referrals', callback: () {}),
+            profileOption(
+                icon: addressImage,
+                name: 'Saved Addresses',
+                callback: () {
+                  viewModel.goToSavedLocation();
+                }),
+            profileOption(
+                icon: referralsImage, name: 'Referrals', callback: () {}),
             CustomDivider(thickness: 16.h),
-            profileOption(icon: '', name: 'New Updates', callback: () {}),
-            profileOption(icon: '', name: 'FAQs', callback: () {}),
-            profileOption(icon: '', name: 'Legal', callback: () {}),
+            profileOption(
+                icon: updatesImage, name: 'New Updates', callback: () {}),
+            profileOption(icon: faqImage, name: 'FAQs', callback: () {}),
+            profileOption(icon: legalImage, name: 'Legal', callback: () {}),
             CustomDivider(thickness: 16.h),
-            profileOption(icon: '', name: 'Log out', callback: () {}),
-            profileOption(icon: '', name: 'Delete Account', callback: () {}),
+            profileOption(
+                icon: logoutImage,
+                name: 'Log out',
+                callback: () {
+                  viewModel.showLogoutBottomSheet();
+                }),
+            profileOption(icon: deleteImage, name: 'Delete Account', callback: () {}),
             Gap(48.h)
           ],
         ),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -6,8 +5,8 @@ import 'package:stacked/stacked.dart';
 import 'package:vanilla/ui/common/base_ui.dart';
 import 'package:vanilla/ui/common/custom_button.dart';
 import 'package:vanilla/ui/common/custom_text_display.dart';
-import 'package:vanilla/ui/common/custom_text_form_field.dart';
 import 'package:vanilla/ui/views/profile/profile_viewmodel.dart';
+import 'package:vanilla/ui/views/profile/widgets/location_card.dart';
 import 'package:vanilla/utilities/constants/colors.dart';
 
 class SavedLocationsView extends StackedView<ProfileViewModel> {
@@ -35,112 +34,40 @@ class SavedLocationsView extends StackedView<ProfileViewModel> {
                 textFontSize: 20,
                 textFontWeight: FontWeight.w500,
               ),
-              Gap(16.h),
               const CustomTextDisplay(
-                inputText: 'Where are you sending from?',
-                textFontSize: 16,
-                textFontWeight: FontWeight.w600,
-              ),
-              Gap(4.h),
-              CustomTextFormField(
-                hintText: 'Enter pickup location',
-                validator: (value) {
-                  return null;
-                },
+                inputText: 'Swipe to delete desired location',
+                textFontSize: 14,
+                textFontWeight: FontWeight.w400,
               ),
               Gap(24.h),
-              const CustomTextDisplay(
-                inputText: 'Where is it going?',
-                textFontSize: 16,
-                textFontWeight: FontWeight.w600,
-              ),
-              Gap(4.h),
-              CustomTextFormField(
-                hintText: 'Enter dropoff location',
-                validator: (value) {
-                  return null;
-                },
-              ),
+              locationCard(
+                  address: 'No 10 Acme Road, Ikeja.',
+                  onDelete: () {
+                    viewModel.showDeleteLocationBottomSheet();
+                  }),
               Gap(16.h),
+              locationCard(
+                  address: '20 Elsie Pierce street, Kofo Abayomi',
+                  onDelete: () {}),
+              Gap(16.h),
+              locationCard(
+                  address: 'University of Lagos, Akoka', onDelete: () {}),
+              Gap(16.h),
+              locationCard(address: 'No 10 Acme Road, Ikeja.', onDelete: () {}),
+              Gap(16.h),
+              locationCard(
+                  address: 'Oceans Basket, Ojuelegba', onDelete: () {}),
+              Gap(124.h),
               CustomButton(
-                buttonText: 'Add another delivery point',
+                buttonText: 'Add a new location',
                 fontColor: AppColors.accentColor,
                 icon: Icons.add_box_rounded,
                 iconColor: AppColors.accentColor,
                 backgroundColor: Colors.transparent,
                 borderColor: AppColors.accentColor,
-                onPressed: () {},
-              ),
-              Gap(24.h),
-              const CustomTextDisplay(
-                inputText: "Package Information",
-                textFontSize: 16,
-                textFontWeight: FontWeight.w600,
-              ),
-              Gap(24.h),
-              const CustomTextDisplay(
-                inputText: 'Sender’s name',
-                textFontSize: 12,
-                textFontWeight: FontWeight.w600,
-              ),
-              Gap(4.h),
-              CustomTextFormField(
-                hintText: 'Yongiduu',
-                validator: (value) {
-                  return null;
+                onPressed: () {
+                  viewModel.showAddLocationBottomSheet();
                 },
-              ),
-              Gap(16.h),
-              const CustomTextDisplay(
-                inputText: 'Sender’s Phone number',
-                textFontSize: 12,
-                textFontWeight: FontWeight.w600,
-              ),
-              Gap(4.h),
-              CustomTextFormField(
-                hintText: '090384342843',
-                validator: (value) {
-                  return null;
-                },
-              ),
-              Gap(16.h),
-              const CustomTextDisplay(
-                inputText: 'Receiver’s name',
-                textFontSize: 12,
-                textFontWeight: FontWeight.w600,
-              ),
-              Gap(4.h),
-              CustomTextFormField(
-                hintText: 'Yongiduu',
-                validator: (value) {
-                  return null;
-                },
-              ),
-              Gap(16.h),
-              const CustomTextDisplay(
-                inputText: 'Receiver’s Phone number',
-                textFontSize: 12,
-                textFontWeight: FontWeight.w600,
-              ),
-              Gap(4.h),
-              CustomTextFormField(
-                hintText: '090384342843',
-                validator: (value) {
-                  return null;
-                },
-              ),
-              Gap(16.h),
-              const CustomTextDisplay(
-                inputText: 'Package category',
-                textFontSize: 12,
-                textFontWeight: FontWeight.w600,
-              ),
-              Gap(4.h),
-              Gap(24.h),
-              CustomButton(
-                buttonText: 'Proceed to Payment',
-                onPressed: () {},
-                fontSize: 15,
               ),
               Gap(48.h),
             ],

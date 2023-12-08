@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:stacked/stacked.dart';
 import 'package:vanilla/models/body/home_enum.dart';
 import 'package:vanilla/ui/common/custom_loader.dart';
 import 'package:vanilla/ui/views/activity/activity_view.dart';
-import 'package:vanilla/ui/bottom_nav/bottom_nav_viewmodel.dart';
 import 'package:vanilla/ui/views/home/dashboard_view.dart';
+import 'package:vanilla/ui/views/home/home_viewmodel.dart';
 import 'package:vanilla/ui/views/profile/profile_view.dart';
 import 'package:vanilla/ui/views/support/support_view.dart';
 import 'package:vanilla/utilities/constants/colors.dart';
+import 'package:vanilla/utilities/constants/images.dart';
 
 class HomeView extends StatelessWidget {
   final HomeViewEnum homeViewEnum;
@@ -16,7 +19,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<BottomNavViewModel>.reactive(
+    return ViewModelBuilder<HomeViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: AppColors.white,
@@ -39,25 +42,41 @@ class HomeView extends StatelessWidget {
           onTap: model.setIndex,
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
-                activeIcon: Icon(Icons.home_outlined),
+                icon: SvgPicture.asset(homeImage, height: 24.h),
+                activeIcon: SvgPicture.asset(
+                  homeImage,
+                  height: 27.5.h,
+                  color: AppColors.accentColor,
+                ),
                 label: HomeViewEnum.dashboard.name),
             BottomNavigationBarItem(
-                icon: Icon(Icons.article_outlined),
-                activeIcon: Icon(Icons.article_outlined),
+                icon: SvgPicture.asset(activitiesImage, height: 24.h),
+                activeIcon: SvgPicture.asset(
+                  activitiesImage,
+                  height: 27.5.h,
+                  color: AppColors.accentColor,
+                ),
                 label: HomeViewEnum.activity.name),
             BottomNavigationBarItem(
-                icon: Icon(Icons.message_outlined),
-                activeIcon: Icon(Icons.message_outlined),
+                icon: SvgPicture.asset(supportImage, height: 24.h),
+                activeIcon: SvgPicture.asset(
+                  supportImage,
+                  height: 27.5.h,
+                  color: AppColors.accentColor,
+                ),
                 label: HomeViewEnum.support.name),
             BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                activeIcon: Icon(Icons.person),
+                icon: SvgPicture.asset(userImage, height: 24.h),
+                activeIcon: SvgPicture.asset(
+                  userImage,
+                  height: 27.5.h,
+                  color: AppColors.accentColor,
+                ),
                 label: HomeViewEnum.profile.name),
           ],
         ),
       ),
-      viewModelBuilder: () => BottomNavViewModel(),
+      viewModelBuilder: () => HomeViewModel(),
     );
   }
 }
