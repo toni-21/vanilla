@@ -14,6 +14,8 @@ import 'package:vanilla/ui/views/auth/splash/splash_view.dart';
 import 'package:vanilla/ui/views/auth/onboarding/onboarding_view.dart';
 import 'package:vanilla/ui/views/auth/login/login_view.dart';
 import 'package:vanilla/services/auth_service.dart';
+import 'package:vanilla/ui/views/profile/edit_profile.dart';
+import 'package:vanilla/ui/views/profile/saved_locations.dart';
 // @stacked-import
 
 @StackedApp(
@@ -27,6 +29,8 @@ import 'package:vanilla/services/auth_service.dart';
     MaterialRoute(page: SetupView),
     MaterialRoute(page: DeliveryDetailsView),
     MaterialRoute(page: DeliverySummaryView),
+    MaterialRoute(page: EditProfileView),
+    MaterialRoute(page: SavedLocationsView),
 
 // @stacked-route
   ],

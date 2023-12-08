@@ -19,6 +19,8 @@ import 'package:vanilla/ui/views/auth/splash/splash_view.dart' as _i4;
 import 'package:vanilla/ui/views/home/delivery/delivery_details_view.dart';
 import 'package:vanilla/ui/views/home/delivery/delivery_summary_view.dart';
 import 'package:vanilla/ui/views/home/home_view.dart' as _i2;
+import 'package:vanilla/ui/views/profile/edit_profile.dart';
+import 'package:vanilla/ui/views/profile/saved_locations.dart';
 
 class Routes {
   static const homeView = '/home-view';
@@ -41,6 +43,10 @@ class Routes {
 
   static const deliverySummaryView = '/delivery-summary-view';
 
+  static const editProfileView = '/edit-profile-view';
+
+  static const savedLocationsView = '/saved-locations-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -52,6 +58,8 @@ class Routes {
     setupView,
     deliveryDetailsView,
     deliverySummaryView,
+    editProfileView,
+    savedLocationsView,
   };
 }
 
@@ -92,6 +100,14 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(
       Routes.deliverySummaryView,
       page: DeliverySummaryView,
+    ),
+    _i1.RouteDef(
+      Routes.savedLocationsView,
+      page: SavedLocationsView,
+    ),
+    _i1.RouteDef(
+      Routes.editProfileView,
+      page: EditProfileView,
     ),
   ];
 
@@ -152,6 +168,18 @@ class StackedRouter extends _i1.RouterBase {
     DeliverySummaryView: (data) {
       return _i7.MaterialPageRoute<dynamic>(
         builder: (context) => const DeliverySummaryView(),
+        settings: data,
+      );
+    },
+    EditProfileView: (data) {
+      return _i7.MaterialPageRoute<dynamic>(
+        builder: (context) => const EditProfileView(),
+        settings: data,
+      );
+    },
+    SavedLocationsView: (data) {
+      return _i7.MaterialPageRoute<dynamic>(
+        builder: (context) => const SavedLocationsView(),
         settings: data,
       );
     },

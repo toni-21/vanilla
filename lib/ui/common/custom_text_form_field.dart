@@ -25,6 +25,7 @@ class CustomTextFormField extends StatefulWidget {
   final bool divider;
   final bool showTitle;
   final String? prefixImage;
+  final Widget? suffixIcon;
   final double prefixSize;
   final double iconSize;
   final bool isPhone;
@@ -57,6 +58,7 @@ class CustomTextFormField extends StatefulWidget {
     this.autoValidate = true,
     this.iconSize = 18,
     this.isPhone = false,
+    this.suffixIcon,
     this.countryDialCode,
     this.onCountryChanged,
     this.border = true,
@@ -141,7 +143,7 @@ class CustomTextFieldState extends State<CustomTextFormField> {
                         color: Theme.of(context).hintColor.withOpacity(0.3)),
                     onPressed: _toggle,
                   )
-                : null,
+                : widget.suffixIcon,
           ),
           autovalidateMode: widget.autoValidate
               ? AutovalidateMode.onUserInteraction
