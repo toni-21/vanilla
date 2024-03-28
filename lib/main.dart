@@ -6,12 +6,21 @@ import 'package:vanilla/app/app.locator.dart';
 import 'package:vanilla/app/app.router.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:vanilla/utilities/constants/themes.dart';
+import 'package:appwrite/appwrite.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
+
+  Client client = Client();
+  client
+      .setEndpoint('https://cloud.appwrite.io/v1')
+      .setProject('660291269afe76625660')
+      .setSelfSigned(
+          status:
+              true); // For self signed certificates, only use for development
   runApp(const MainApp());
 }
 

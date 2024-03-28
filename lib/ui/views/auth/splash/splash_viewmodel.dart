@@ -11,7 +11,7 @@ class SplashViewModel extends BaseViewModel {
     // This is where you can make decisions on where your app should navigate when
     // you have custom startup logic
 
-     _navigationService.replaceWithHomeView();
-    //_navigationService.replaceWithOnboardingView();
+     //_navigationService.replaceWithHomeView();
+    _navigationService.replaceWithOnboardingView();
   }
 }
