@@ -29,7 +29,7 @@ class StarRating extends StatelessWidget {
         (index) {
           return InkWell(
             onTap: () {
-              callback(index);
+              // callback(index);
             },
             child:
                 // SvgPicture.asset(
@@ -47,7 +47,7 @@ class StarRating extends StatelessWidget {
                     : AppColors.midGray.withOpacity(0.3),
               ),
               onPressed: () {
-                callback(index);
+                // callback(index);
               },
             ),
             // SvgPict

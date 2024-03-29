@@ -1,4 +1,6 @@
+import 'package:vanilla/services/api_service.dart';
 import 'package:vanilla/services/app_service.dart';
+import 'package:vanilla/services/local_storage.dart';
 import 'package:vanilla/ui/bottom_sheets/action_warning/action_warning_sheet.dart';
 import 'package:vanilla/ui/bottom_sheets/add_location/add_location_sheet.dart';
 import 'package:vanilla/ui/bottom_sheets/confirm_price/confirm_price_sheet.dart';
@@ -41,7 +43,9 @@ import 'package:vanilla/ui/views/profile/saved_locations.dart';
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: AuthService),
+    LazySingleton(classType: ApiService),
     LazySingleton(classType: AppService),
+    LazySingleton(classType: LocalStorage),
 // @stacked-service
   ],
   bottomsheets: [

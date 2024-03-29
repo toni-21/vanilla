@@ -5,6 +5,7 @@ import 'package:vanilla/app/app.bottomsheets.dart';
 import 'package:vanilla/app/app.locator.dart';
 import 'package:vanilla/app/app.router.dart';
 import 'package:vanilla/models/body/action_warning.dart';
+import 'package:vanilla/models/response/user.dart';
 import 'package:vanilla/services/auth_service.dart';
 
 class ProfileViewModel extends BaseViewModel {
@@ -14,6 +15,8 @@ class ProfileViewModel extends BaseViewModel {
 
   final newLocationController = TextEditingController();
   final landmarkController = TextEditingController();
+
+  UserModel get user => _authService.currentUser;
 
   void goToSavedLocation() {
     _navigationService.navigateTo(Routes.savedLocationsView);

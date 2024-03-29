@@ -103,6 +103,7 @@ class NameView extends StackedView<OnboardingViewModel> {
               Gap(40.h),
               CustomButton(
                 buttonText: 'Continue',
+                isLoading: viewModel.isBusy,
                 onPressed: () {
                   viewModel.nameContinueFunction(context);
                 },

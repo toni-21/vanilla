@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:vanilla/app/app.locator.dart';
 import 'package:vanilla/models/body/activity_enum.dart';
 import 'package:vanilla/services/auth_service.dart';
+import 'package:vanilla/utilities/function_helpers/printf.dart';
 
 class ActivityViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
@@ -24,6 +24,6 @@ class ActivityViewModel extends BaseViewModel {
     }
     ratingValue = newRating;
     notifyListeners();
-    debugPrint('Selected Rating: $ratingValue');
+    printf('Selected Rating: $ratingValue');
   }
 }

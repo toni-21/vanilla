@@ -12,15 +12,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupLocator();
   setupDialogUi();
-  setupBottomSheetUi();
-
-  Client client = Client();
-  client
-      .setEndpoint('https://cloud.appwrite.io/v1')
-      .setProject('660291269afe76625660')
-      .setSelfSigned(
-          status:
-              true); // For self signed certificates, only use for development
+  setupBottomSheetUi(); // For self signed certificates, only use for development
   runApp(const MainApp());
 }
 

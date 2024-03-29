@@ -10,7 +10,9 @@ import 'package:stacked_services/src/bottom_sheet/bottom_sheet_service.dart';
 import 'package:stacked_services/src/dialog/dialog_service.dart';
 import 'package:stacked_services/src/navigation/navigation_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
+import 'package:vanilla/services/api_service.dart';
 import 'package:vanilla/services/app_service.dart';
+import 'package:vanilla/services/local_storage.dart';
 
 import '../services/auth_service.dart';
 
@@ -30,4 +32,6 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => AuthService());
   locator.registerLazySingleton(() => AppService());
+  locator.registerLazySingleton(() => ApiService());
+  locator.registerLazySingleton(() => LocalStorage());
 }

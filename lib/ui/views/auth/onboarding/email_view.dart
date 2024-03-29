@@ -77,6 +77,7 @@ class EmailView extends StackedView<OnboardingViewModel> {
               Gap(16.h),
               CustomButton(
                 buttonText: 'Continue',
+                isLoading: viewModel.isBusy,
                 onPressed: () {
                   viewModel.emailContinueFunction(context);
                 },
@@ -85,6 +86,7 @@ class EmailView extends StackedView<OnboardingViewModel> {
               CustomButton(
                 buttonText: 'Continue with Google',
                 icon: Icons.apple_sharp,
+                fontColor: AppColors.black,
                 iconColor: AppColors.black,
                 backgroundColor: Colors.transparent,
                 borderColor: AppColors.black,

@@ -29,8 +29,8 @@ class DashboardView extends StackedView<HomeViewModel> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Gap(8.h),
-              const CustomTextDisplay(
-                inputText: 'Mide, send some packages today!',
+            CustomTextDisplay(
+                inputText: '${viewModel.user.firstName}, send some packages today!',
                 textFontSize: 16,
                 textFontWeight: FontWeight.w600,
               ),

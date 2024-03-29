@@ -57,12 +57,12 @@ class ProfileView extends StackedView<ProfileViewModel> {
             ),
             Gap(8.h),
             CustomTextDisplay(
-              inputText: 'John Doe',
+              inputText: '${viewModel.user.firstName} ${viewModel.user.lastName}',
               textFontSize: 20,
               textFontWeight: FontWeight.w600,
             ),
             CustomTextDisplay(
-              inputText: 'vanilla@gmail.com | +2349065432314',
+              inputText: '${viewModel.user.email} | ${viewModel.user.phoneNumber}',
               textFontSize: 14,
               textColor: AppColors.midGray,
               textFontWeight: FontWeight.w400,

@@ -11,6 +11,11 @@ import 'onboarding_viewmodel.dart';
 class OTPVerificationView extends StackedView<OnboardingViewModel> {
   final String type;
   const OTPVerificationView({Key? key, required this.type}) : super(key: key);
+  @override
+  void onViewModelReady(OnboardingViewModel viewModel) async {
+    viewModel.getOtp();
+    super.onViewModelReady(viewModel);
+  }
 
   @override
   Widget builder(
@@ -37,7 +42,8 @@ class OTPVerificationView extends StackedView<OnboardingViewModel> {
               ),
               Gap(2.h),
               CustomTextDisplay(
-                inputText: type == 'email' ?  viewModel.email : viewModel.phoneNumber,
+                inputText:
+                    type == 'email' ? viewModel.email : viewModel.phoneNumber,
                 textFontSize: 18,
                 textColor: AppColors.red,
                 textFontWeight: FontWeight.w600,
@@ -47,6 +53,7 @@ class OTPVerificationView extends StackedView<OnboardingViewModel> {
                 width: 200,
                 child: PinCodeTextField(
                   length: 4,
+                  controller: viewModel.otpController,
                   appContext: context,
                   keyboardType: TextInputType.number,
                   animationType: AnimationType.scale,
@@ -66,7 +73,8 @@ class OTPVerificationView extends StackedView<OnboardingViewModel> {
                   animationDuration: const Duration(milliseconds: 300),
                   backgroundColor: Colors.transparent,
                   enableActiveFill: true,
-                  onChanged: (String text) => viewModel.setOtp(text,type: type),
+                  onChanged: (String text) =>
+                      viewModel.setOtp(text, type: type),
                   beforeTextPaste: (text) => true,
                 ),
               ),

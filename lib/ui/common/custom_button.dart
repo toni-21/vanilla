@@ -16,6 +16,7 @@ class CustomButton extends StatelessWidget {
   final Color? iconColor;
   final Color? borderColor;
   final double? radius;
+  final bool? isLoading;
 
   const CustomButton(
       {Key? key,
@@ -31,6 +32,7 @@ class CustomButton extends StatelessWidget {
       this.iconColor,
       this.backgroundColor,
       this.fontColor,
+      this.isLoading,
       this.radius})
       : super(key: key);
 
@@ -66,14 +68,18 @@ class CustomButton extends StatelessWidget {
                 )
               : const SizedBox(),
           SizedBox(width: icon != null ? 5.w : 0),
-          Text(buttonText,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: transparent
-                    ? Theme.of(context).primaryColor
-                    : fontColor ?? AppColors.white,
-                fontSize: fontSize ?? 15.sp,
-              )),
+          isLoading == true
+              ? CircularProgressIndicator.adaptive(
+                  backgroundColor: AppColors.primaryColorDark,
+                )
+              : Text(buttonText,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: transparent
+                        ? Theme.of(context).primaryColor
+                        : fontColor ?? AppColors.white,
+                    fontSize: fontSize ?? 15.sp,
+                  )),
         ]),
       ),
     );

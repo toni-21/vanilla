@@ -10,6 +10,7 @@ import 'package:vanilla/ui/common/custom_button.dart';
 import 'package:vanilla/ui/common/custom_text_display.dart';
 import 'package:vanilla/utilities/constants/colors.dart';
 import 'package:vanilla/utilities/function_helpers/amount_helper.dart';
+import 'package:vanilla/utilities/function_helpers/printf.dart';
 
 class ConfirmPriceSheet extends StackedView<ConfirmPriceSheetViewModel> {
   final Function(SheetResponse)? completer;
@@ -144,7 +145,7 @@ class ConfirmPriceSheet extends StackedView<ConfirmPriceSheetViewModel> {
               backgroundColor: AppColors.accentColor,
               onPressed: () {
                 Navigator.pop(context);
-                debugPrint('Amount is ${data.amount}');
+                printf('Amount is ${data.amount}');
                 if (data.amount != null) {
                   viewModel.confirmAmount(data.amount!);
                 }
